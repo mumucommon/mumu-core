@@ -1,51 +1,68 @@
 package com.lovecws.mumu.common.core.utils;
 
+import java.io.*;
+
 /**
  * 它的作用就是把对象转化为byte数组，或把byte数组转化为对象。
  */
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
 public class SerializeUtils {
 
+    /**
+     * 将对象序列化成字节数组
+     *
+     * @param o
+     * @return
+     */
     public static byte[] serialize(Object o) {
         if(o==null){
             return null;
         }
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        ObjectOutputStream outo = null;
+        ByteArrayOutputStream out = null;
         try {
-            ObjectOutputStream outo = new ObjectOutputStream(out);
+            outo = new ObjectOutputStream(out);
+            out = new ByteArrayOutputStream();
             outo.writeObject(o);
+            return out.toByteArray();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
+        } finally {
+            try {
+                outo.close();
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
-        return out.toByteArray();
+        return null;
     }
 
+    /**
+     * 将序列化的字节数据反序列化为对象
+     *
+     * @param b
+     * @return
+     */
     public static Object deserialize(byte[] b) {
         if(b==null){
             return null;
         }
-        ObjectInputStream oin;
+        ObjectInputStream oin = null;
         try {
             oin = new ObjectInputStream(new ByteArrayInputStream(b));
-            try {
-                return oin.readObject();
-            } catch (ClassNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-                return null;
-            }
+            return oin.readObject();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return null;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                oin.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
+        return null;
     }
 }
