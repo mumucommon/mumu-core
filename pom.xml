@@ -307,12 +307,25 @@
     </dependency>
   </dependencies>
 
+  <!-- 组织机构 -->
+  <organization>
+    <name>babymm</name>
+    <url>https://github.com/babymm</url>
+  </organization>
+  <!-- 开源license -->
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
   <!-- 开发者信息 -->
   <developers>
     <developer>
-      <id>babymm</id>
-      <name>甘亮</name>
-      <email>babymm@aliyun.com</email>
+      <id>lovecws</id>
+      <name>ganliang</name>
+      <email>lovercws@gmail.com</email>
       <roles>
         <role>admin</role>
       </roles>
@@ -320,6 +333,16 @@
       <organization>baby慕慕</organization>
     </developer>
   </developers>
+  <scm>
+    <connection>scm:git:git://github.com/mumucommon/mumu-core.git</connection>
+    <developerConnection>scm:git:git://github.com/mumucommon/mumu-core.git</developerConnection>
+    <url>https://github.com/mumucommon/mumu-core.git</url>
+  </scm>
+  <!--issues-->
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/mumucommon/mumu-core/issues</url>
+  </issueManagement>
   <!-- 配置项目版本管理 -->
   <distributionManagement>
     <repository>
@@ -337,6 +360,7 @@
   </distributionManagement>
 
   <build>
+    <finalName>mumu-core</finalName>
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -352,6 +376,7 @@
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
+          <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
       <!-- 打jar包 -->
@@ -385,6 +410,35 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <formats>
+            <format>html</format>
+            <format>xml</format>
+          </formats>
+          <!--<encoding>UTF-8</encoding>-->
+          <check/>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9.1</version>
+        <configuration>
+          <aggregate>true</aggregate>
+          <tags>
+            <tag>
+              <name>Description</name>
+              <placement>a</placement>
+              <head>用途</head>
+            </tag>
+          </tags>
+          <encoding>UTF-8</encoding>
+        </configuration>
       </plugin>
     </plugins>
   </build>
