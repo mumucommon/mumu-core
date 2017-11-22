@@ -22,8 +22,9 @@
    
 ## chanage log
 2017-11-22 
-- 添加 ==MumuCacheComponent==工具，该工具是一个抽象类，实现缓存的基本功能（缓存判断、缓存熔断等），然后将获取缓存、缓存删除、缓存对象等接口做成抽象接口，供实现的实现根据项目的情况选择不同的缓存框架（redis、memcache、zalcast等）。
-- 添加 ==MumuLogComponent==工具，该工具也是一个抽象类，实现日志数据拦截，然后将日志数据导向到抽象方法中，供实现着来接受日志（控制台打印、kafka、rocketmq、mysql等）。
+- 添加**MumuCacheComponent**工具，该工具是一个抽象类，实现缓存的基本功能（缓存判断、缓存熔断等），然后将获取缓存、缓存删除、缓存对象等接口做成抽象接口，供实现的实现根据项目的情况选择不同的缓存框架（redis、memcache、zalcast等）。
+- 添加**MumuLogComponent**工具，该工具也是一个抽象类，实现日志数据拦截，然后将日志数据导向到抽象方法中，供实现着来接受日志（控制台打印、kafka、rocketmq、mysql等）。
+- 添加java序列化、jboss marshalling序列化、hession序列化等工具类。
 
 ## 联系方式
 **以上观点纯属个人看法，如有不同，欢迎指正。  
