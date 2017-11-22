@@ -10,7 +10,6 @@ import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.TypeAliasRegistry;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -21,19 +20,14 @@ import java.util.Properties;
 public class MapperScanApplication {
 
 	private static final Logger log=Logger.getLogger(MapperScanApplication.class);
-	@Autowired
+
 	private SqlSessionFactory sqlSessionFactory;
 
 	private String configLocation;
-	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
-		this.sqlSessionFactory = sqlSessionFactory;
-	}
-	public void setConfigLocation(String configLocation) {
-		this.configLocation = configLocation;
-	}
+
 
 	public void init() throws IOException, SAXException, ParserConfigurationException, ClassNotFoundException {
-		log.info("解析"+configLocation);
+		log.info("parse " + configLocation);
 		// 解析xml
 		InputStream inputStream=MapperScanApplication.class.getClassLoader().getResourceAsStream(configLocation);
 		
@@ -60,7 +54,7 @@ public class MapperScanApplication {
 	 */
 	private void handleSetting(Configuration configuration, XNode root) {
 		XNode settingsNode = root.evalNode("settings");
-		log.info("加載配置信息..........................");
+		log.info("load settings message..........................");
 		if(settingsNode!=null){
 			Properties props = settingsNode.getChildrenAsProperties();
 			
@@ -78,7 +72,7 @@ public class MapperScanApplication {
 	 * @param configuration
 	 */
 	private void handleTypeAlias(Configuration configuration, XNode root) {
-		log.info("加載別名信息..........................");
+		log.info("load alias message...........................");
 		TypeAliasRegistry typeAliasRegistry = configuration.getTypeAliasRegistry();
 		XNode parent = root.evalNode("typeAliases");
 		if(parent!=null){
@@ -113,7 +107,7 @@ public class MapperScanApplication {
 	 * @throws ClassNotFoundException
 	 */
 	private void handleMappers(Configuration configuration, XNode root) throws IOException, ClassNotFoundException {
-		log.info("加載Mapper信息..........................");
+		log.info("load mapper message..........................");
 		XNode parent = root.evalNode("mappers");
 		if (parent != null) {
 			for (XNode child : parent.getChildren()) {
@@ -150,5 +144,21 @@ public class MapperScanApplication {
 				}
 			}
 		}
+	}
+
+	public SqlSessionFactory getSqlSessionFactory() {
+		return sqlSessionFactory;
+	}
+
+	public void setSqlSessionFactory(final SqlSessionFactory sqlSessionFactory) {
+		this.sqlSessionFactory = sqlSessionFactory;
+	}
+
+	public String getConfigLocation() {
+		return configLocation;
+	}
+
+	public void setConfigLocation(final String configLocation) {
+		this.configLocation = configLocation;
 	}
 }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/mumu-common-core.iml" filepath="$PROJECT_DIR$/mumu-common-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mumu-core.iml" filepath="$PROJECT_DIR$/mumu-core.iml" />
     </modules>
   </component>
 </project>

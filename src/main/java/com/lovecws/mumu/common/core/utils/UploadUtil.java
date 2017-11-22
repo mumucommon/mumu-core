@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -82,7 +83,7 @@ public final class UploadUtil {
 	public static List<String> uploadImage(HttpServletRequest request) throws IllegalStateException, IOException {
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(
 				request.getSession().getServletContext());
-		List<String> fileNames = InstanceUtil.newArrayList();
+		List<String> fileNames = new ArrayList<String>();
 		if (multipartResolver.isMultipart(request)) {
 			MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
 			Iterator<String> iterator = multiRequest.getFileNames();
@@ -132,7 +133,7 @@ public final class UploadUtil {
 	public static List<String> uploadFile(HttpServletRequest request,String pathDir) throws IllegalStateException, IOException {
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(
 				request.getSession().getServletContext());
-		List<String> fileNames = InstanceUtil.newArrayList();
+		List<String> fileNames = new ArrayList<String>();
 		if (multipartResolver.isMultipart(request)) {
 			MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
 			Iterator<String> iterator = multiRequest.getFileNames();
