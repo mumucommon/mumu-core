@@ -1,0 +1,6 @@
+2017-11-22 11:23:17,815 INFO[com.lovecws.mumu.core.utils.HttpClientUtil:36] - https://github.com/mumucommon/mumu-core
+2017-11-22 11:23:19,517 WARN[org.apache.http.client.protocol.ResponseProcessCookies:129] - Invalid cookie header: "Set-Cookie: logged_in=no; domain=.github.com; path=/; expires=Sun, 22 Nov 2037 03:23:21 -0000; secure; HttpOnly". Invalid 'expires' attribute: Sun, 22 Nov 2037 03:23:21 -0000
+2017-11-22 11:23:20,783 INFO[net.sourceforge.cobertura.coveragedata.CoverageDataFileHandler:86] - Cobertura: Loaded information on 117 classes.
+2017-11-22 11:23:20,908 INFO[net.sourceforge.cobertura.coveragedata.CoverageDataFileHandler:138] - Cobertura: Saved information on 117 classes.
+2017-11-22 11:47:17,395 INFO[com.lovecws.mumu.core.utils.HttpClientUtil:36] - https://github.com/mumucommon/mumu-core
+2017-11-22 11:47:19,150 WARN[org.apache.http.client.protocol.ResponseProcessCookies:129] - Invalid cookie header: "Set-Cookie: logged_in=no; domain=.github.com; path=/; expires=Sun, 22 Nov 2037 03:47:21 -0000; secure; HttpOnly". Invalid 'expires' attribute: Sun, 22 Nov 2037 03:47:21 -0000
