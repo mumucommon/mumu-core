@@ -43,7 +43,7 @@ public class UnsafeUtil {
     }
 
     public static void main(String[] args) throws NoSuchFieldException {
-        UnsafeUtil unsafe2=new UnsafeUtil();
+        final UnsafeUtil unsafe2=new UnsafeUtil();
         unsafe2.initParam=1;
         //boolean initParam = compareAndSwapInt(unsafe2, "initParam", 100);
         //System.out.println(initParam);

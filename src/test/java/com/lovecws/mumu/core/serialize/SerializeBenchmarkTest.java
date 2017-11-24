@@ -23,7 +23,7 @@ public class SerializeBenchmarkTest {
         map.put("password4", "5211314");
     }
 
-    public void serialize(String serialize, int count) {
+    /*public void serialize(String serialize, int count) {
         long size = 0;
         long start = System.currentTimeMillis();
         for (int i = 0; i < count; i++) {
@@ -52,14 +52,14 @@ public class SerializeBenchmarkTest {
         }
         long end = System.currentTimeMillis();
         System.out.println(serialize + "\ttime:" + (end - start) + "ms\t size:" + size);
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void run() {
         serialize("java", 10000000);
         serialize("marshalling", 10000000);
         serialize("hessian", 10000000);
         serialize("hessian2", 10000000);
         serialize("HessianSerializer", 10000000);
-    }
+    }*/
 }

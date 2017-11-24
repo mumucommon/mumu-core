@@ -1,5 +1,6 @@
 package com.lovecws.mumu.core.utils;
 
+import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 
 /**
@@ -12,7 +13,9 @@ public class HttpClientUtilTest {
 
     @Test
     public void get() {
-        String content = HttpClientUtil.get("https://github.com/mumucommon/mumu-core");
-        System.out.println(content);
+        //String content = HttpClientUtil.get("https://github.com/mumucommon/mumu-core");
+        //System.out.println(content);
+        int i = RandomUtils.nextInt(0, 2);
+        System.out.println(i);
     }
 }
